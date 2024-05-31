@@ -1,0 +1,11 @@
+{
+  "name": "fallout-password-hack",
+  "version": "1.0.0",
+  "description": "Find the correct password when hacking terminals in Fallout",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Egidio Caprino <egidio.caprino@ik.me>",
+  "license": "GPL-3.0-only"
+}
