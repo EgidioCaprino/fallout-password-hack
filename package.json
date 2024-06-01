@@ -10,6 +10,7 @@
   "author": "Egidio Caprino <egidio.caprino@ik.me>",
   "license": "GPL-3.0-only",
   "devDependencies": {
+    "@types/node": "^20.13.0",
     "typescript": "^5.4.5"
   },
   "engines": {
