@@ -2,38 +2,39 @@
 
 import { ChangeEvent, useState } from "react";
 
+const SEPARATOR = " ";
+
 interface Props {
   onWordsChange: (words: string[]) => void;
 }
 
 export default function WordsForm({ onWordsChange }: Props) {
   const [value, setValue] = useState("");
-  const onChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
     const words = event.target.value
-      .split("\n")
+      .split(SEPARATOR)
       .map((line) => line.trim())
       .filter(Boolean);
     onWordsChange(words);
   };
   const placeholder = ["Tall", "Care", "Crap", "Free", "Cork", "Arms"].join(
-    "\n",
+    SEPARATOR,
   );
   return (
     <>
-      <label htmlFor="input" className="font-semibold text-lg">
-        Enter the words, one per line
+      <label htmlFor="words" className="font-semibold text-lg">
+        Enter the words separated by spaces
       </label>
-      <textarea
-        name="input"
-        id="input"
-        rows={10}
+      <input
+        type="text"
+        id="words"
         required={true}
         placeholder={placeholder}
-        className="rounded-lg p-4 bg-black/5 border-2 border-solid border-black/10 font-mono font-medium text-sm"
+        className="rounded-lg p-4 bg-black/5 border-2 border-solid border-black/10 font-mono font-medium text-sm mt-2"
         onChange={onChange}
         value={value}
-      ></textarea>
+      ></input>
     </>
   );
 }

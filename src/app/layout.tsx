@@ -12,9 +12,7 @@ export default function RootLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-      <body className="md:container md:mx-auto">
-        {children}
-      </body>
+      <body className="md:container md:mx-auto">{children}</body>
     </html>
   );
 }
