@@ -10,3 +10,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run check-format
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
