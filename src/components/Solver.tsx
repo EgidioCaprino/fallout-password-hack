@@ -44,7 +44,7 @@ function Word(props: WordProps) {
   if (selected) {
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      assert(likeness);
+      assert(typeof likeness === "number" && likeness >= 0);
       onLikeness(likeness);
     };
     return (
