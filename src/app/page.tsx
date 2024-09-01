@@ -13,6 +13,10 @@ export default function Home() {
     setSolverVisible(true);
   };
 
+  const wordsHaveSameLength =
+    words.length === 0 ||
+    words.every((word) => word.length === words[0].length);
+
   return (
     <main className="pt-8">
       <h1 className="text-4xl antialiased font-semibold text-center">
@@ -34,7 +38,7 @@ export default function Home() {
                 <button
                   type="submit"
                   className="rounded-lg p-3 bg-green-500/20 border-2 border-solid border-green-500/20 transition-colors hover:bg-green-500/40 font-medium text-base leading-none flex flex-row items-center justify-center gap-2"
-                  disabled={words.length < 2}
+                  disabled={words.length < 2 || !wordsHaveSameLength}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +56,11 @@ export default function Home() {
                   <span className="font-bold">Start!</span>
                 </button>
               </div>
+              {words.length >= 2 && !wordsHaveSameLength && (
+                <div className="flex justify-between mt-2 items-center text-red-900 font-bold">
+                  <p>All the words must have the same length</p>
+                </div>
+              )}
             </fieldset>
           </form>
         )}
